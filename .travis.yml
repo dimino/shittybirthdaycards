@@ -8,7 +8,6 @@ services:
 
 env:
   DOCKER_COMPOSE_VERSION: 1.7.0
-  DEBIAN_FRONTEND: noninteractive
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -16,7 +15,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - sudo apt-get update
-  - sudo apt-get -q -y install docker-engine
+  - sudo apt-get install docker-engine -qy
   - docker-compose build
 
 script:
