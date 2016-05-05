@@ -9,14 +9,16 @@ from sbc.models import (
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        # fields = (field.name for field in Account._meta.get_fields())
+        exclude = ('uuid',)
 
 
 class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
+        exclude = ('uuid',)
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
+        exclude = ('uuid',)
