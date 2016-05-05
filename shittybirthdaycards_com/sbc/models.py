@@ -8,7 +8,7 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class User(BaseModel):
+class Account(BaseModel):
     name = models.CharField(max_length=100)
     email = models.EmailField()
 
@@ -33,8 +33,8 @@ class Event(BaseModel):
 
     message = models.CharField(max_length=140)
 
-    card_uuid = models.ForeignKey(User, db_column='card_uuid')
-    user_uuid = models.ForeignKey(Card, db_column='user_uuid')
+    card_uuid = models.ForeignKey(Card, db_column='card_uuid')
+    user_uuid = models.ForeignKey(Account, db_column='user_uuid')
 
     class Meta:
         db_table = 'events'

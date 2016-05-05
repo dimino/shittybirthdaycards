@@ -11,9 +11,20 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Account',
+            fields=[
+                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
+                ('name', models.CharField(max_length=100)),
+                ('email', models.EmailField(max_length=254)),
+            ],
+            options={
+                'db_table': 'users',
+            },
+        ),
+        migrations.CreateModel(
             name='Card',
             fields=[
-                ('uuid', models.UUIDField(serialize=False, primary_key=True)),
+                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=100)),
                 ('background', models.FilePathField()),
             ],
@@ -24,36 +35,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Event',
             fields=[
-                ('uuid', models.UUIDField(serialize=False, primary_key=True)),
+                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
                 ('who', models.CharField(max_length=100)),
                 ('when', models.DateTimeField()),
                 ('street', models.CharField(max_length=100)),
                 ('zip', models.CharField(max_length=11)),
                 ('message', models.CharField(max_length=140)),
+                ('card_uuid', models.ForeignKey(to='sbc.Card', db_column='card_uuid')),
+                ('user_uuid', models.ForeignKey(to='sbc.Account', db_column='user_uuid')),
             ],
             options={
                 'db_table': 'events',
             },
-        ),
-        migrations.CreateModel(
-            name='User',
-            fields=[
-                ('uuid', models.UUIDField(serialize=False, primary_key=True)),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-            ],
-            options={
-                'db_table': 'users',
-            },
-        ),
-        migrations.AddField(
-            model_name='event',
-            name='card_uuid',
-            field=models.ForeignKey(to='sbc.User', db_column='card_uuid'),
-        ),
-        migrations.AddField(
-            model_name='event',
-            name='user_uuid',
-            field=models.ForeignKey(to='sbc.Card', db_column='user_uuid'),
         ),
     ]
