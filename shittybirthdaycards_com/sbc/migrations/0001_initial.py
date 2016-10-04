@@ -11,41 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Account',
-            fields=[
-                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-            ],
-            options={
-                'db_table': 'users',
-            },
-        ),
-        migrations.CreateModel(
             name='Card',
             fields=[
-                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=100)),
-                ('background', models.FilePathField()),
-            ],
-            options={
-                'db_table': 'cards',
-            },
-        ),
-        migrations.CreateModel(
-            name='Event',
-            fields=[
-                ('uuid', models.UUIDField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('who', models.CharField(max_length=100)),
                 ('when', models.DateTimeField()),
                 ('street', models.CharField(max_length=100)),
-                ('zip', models.CharField(max_length=11)),
+                ('zipcode', models.CharField(max_length=11)),
                 ('message', models.CharField(max_length=140)),
-                ('card_uuid', models.ForeignKey(to='sbc.Card', db_column='card_uuid')),
-                ('user_uuid', models.ForeignKey(to='sbc.Account', db_column='user_uuid')),
             ],
             options={
-                'db_table': 'events',
+                'db_table': 'cards',
             },
         ),
     ]

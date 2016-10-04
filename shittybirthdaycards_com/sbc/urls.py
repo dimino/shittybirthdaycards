@@ -1,14 +1,10 @@
-from rest_framework.routers import DefaultRouter
+from django.conf.urls import url, include
+from rest_framework import routers
+from sbc import views
 
-from sbc.views import (
-    AccountViewSet,
-    CardViewSet,
-    EventViewSet,
-)
+router = routers.DefaultRouter()
+router.register(r'cards', views.CardViewSet)
 
-router = DefaultRouter()
-router.register(r'accounts', AccountViewSet)
-router.register(r'cards', CardViewSet)
-router.register(r'events', EventViewSet)
-
-urlpatterns = router.urls
+urlpatterns = [
+    url(r'^', include(router.urls))
+]
