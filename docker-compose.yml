@@ -14,3 +14,5 @@ services:
     depends_on:
       - db
       - redis
+    environment:
+      - USPS_USERNAME

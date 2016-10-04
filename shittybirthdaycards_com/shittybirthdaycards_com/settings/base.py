@@ -14,6 +14,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# API keys
+USPS_USERNAME = os.environ['USPS_USERNAME']
+
 # Application definition
 
 INSTALLED_APPS = (
