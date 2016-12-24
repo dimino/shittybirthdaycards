@@ -1,10 +1,10 @@
 from django.conf.urls import url, include
 from rest_framework import routers
-from sbc import views
+from sbc.views import api
 
 router = routers.DefaultRouter()
-router.register(r'cards', views.CardViewSet)
+router.register(r'cards', api.CardViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls))
+    url(r'^', include(router.urls)),
 ]
