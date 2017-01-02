@@ -12,7 +12,7 @@ SECRET_KEY = 'dnt$0#&@r!00i+xxx%&h93@v9%t(v0it$ck*)%14#+w5@0$4ti'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # API keys
 USPS_USERNAME = os.environ['USPS_USERNAME']
