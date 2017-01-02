@@ -4,5 +4,6 @@ from sbc.views import ui
 
 
 urlpatterns = [
-    url(r'^$', ui.IndexView.as_view()),
+    url(r'^$', ui.LandingView.as_view()),
+    url(r'^cards', ui.CreateCardView.as_view()),
 ]
