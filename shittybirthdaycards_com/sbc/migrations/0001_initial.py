@@ -13,12 +13,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Card',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('who', models.CharField(max_length=100)),
-                ('when', models.DateTimeField()),
+                ('when', models.DateField()),
                 ('street', models.CharField(max_length=100)),
                 ('zipcode', models.CharField(max_length=11)),
                 ('message', models.CharField(max_length=140)),
+                ('charge_id', models.CharField(max_length=27, blank=True, null=True)),
             ],
             options={
                 'db_table': 'cards',

@@ -42,6 +42,6 @@ class CardSerializer(serializers.HyperlinkedModelSerializer):
                 state=zipcode_data['State']
             )
         except USPSXMLError:
-            raise serializers.ValidationError("Couldn't find the address.")
+            raise serializers.ValidationError("Couldn't find the street and zip combo.")
 
         return data

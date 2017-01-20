@@ -16,3 +16,6 @@ services:
       - redis
     environment:
       - USPS_USERNAME
+      - STRIPE_SECRET_KEY
+      - STRIPE_PUBLIC_KEY
+      - LOB_API_KEY

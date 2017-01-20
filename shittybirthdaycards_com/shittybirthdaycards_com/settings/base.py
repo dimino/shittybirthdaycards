@@ -16,6 +16,9 @@ ALLOWED_HOSTS = ['*']
 
 # API keys
 USPS_USERNAME = os.environ['USPS_USERNAME']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+STRIPE_PUBLIC_KEY = os.environ['STRIPE_PUBLIC_KEY']
+LOB_API_KEY = os.environ['LOB_API_KEY']
 
 # Application definition
 
@@ -91,3 +94,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+POSTCARD_COST_CENTS = 149
