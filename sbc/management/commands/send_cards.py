@@ -31,20 +31,20 @@ class Command(BaseCommand):
             zipcode_data = ZipcodeSearchEngine().by_zipcode(card.zipcode)
 
             address = lob.Address.create(
-                name = card.who,
-                address_line1 = card.street,
-                address_city = zipcode_data['City'],
-                address_state = zipcode_data['State'],
-                address_country = 'US',
-                address_zip = card.zipcode
+                name=card.who,
+                address_line1=card.street,
+                address_city=zipcode_data['City'],
+                address_state=zipcode_data['State'],
+                address_country='US',
+                address_zip=card.zipcode
             )
 
-            postcard = lob.Postcard.create(
-                to_address = address,
-                from_address = address,
-                front = """<html><body>{{who}},</body></html>""",
-                data = {
+            lob.Postcard.create(
+                to_address=address,
+                from_address=address,
+                front="""<html><body>{{who}},</body></html>""",
+                data={
                     'who': card.who
                 },
-                message = card.message,
+                message=card.message,
             )
