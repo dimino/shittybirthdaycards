@@ -31,7 +31,7 @@ class CardSerializer(serializers.HyperlinkedModelSerializer):
         if not zipcode_data['City']:
             raise serializers.ValidationError('US zipcode is wrong, fix it.')
 
-        if arrow.get(arrow.utcnow()).replace(days=3).date() > arrow.get(when).to('utc').date():
+        if arrow.get(arrow.utcnow()).replace(days=+3).date() > arrow.get(when).to('utc').date():
             raise serializers.ValidationError("Need at least 3 days to mail the postcard.")
 
         usps_client = Address(settings.USPS_USERNAME)

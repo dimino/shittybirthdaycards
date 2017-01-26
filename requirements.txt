@@ -3,6 +3,7 @@ arrow==0.10.0
 django-extensions==1.7.6
 django-redis==4.7.0
 djangorestframework==3.5.3
+lob==2.26
 psycopg2==2.6.2
 python-dateutil==2.6.0
 python-usps2==0.2.0
