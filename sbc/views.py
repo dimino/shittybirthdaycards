@@ -1,25 +1,18 @@
 import logging
 
-from sbc.models import Card
 from sbc.serializers import CardSerializer
 from rest_framework.renderers import TemplateHTMLRenderer
-from rest_framework.authentication import (
-    SessionAuthentication,
-    BasicAuthentication,
-)
-from rest_framework.permissions import IsAuthenticated
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.conf import settings
 
 import stripe
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
-from rest_framework import viewsets
 from rest_framework import views
 from rest_framework.response import Response
 
 log = logging.getLogger(__name__)
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class CardView(views.APIView):

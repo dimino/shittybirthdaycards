@@ -44,7 +44,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'shittybirthdaycards_com.urls'
+ROOT_URLCONF = 'sbc.urls'
 
 TEMPLATES = [
     {
@@ -65,7 +65,7 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
 }
 
-WSGI_APPLICATION = 'shittybirthdaycards_com.wsgi.application'
+WSGI_APPLICATION = 'sbc.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
