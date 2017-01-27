@@ -15,6 +15,10 @@ log = logging.getLogger(__name__)
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+
 class CardView(views.APIView):
     renderer_classes = (TemplateHTMLRenderer,)
     template_name = 'card_create.html'

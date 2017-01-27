@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}shitty birthday cards{% endblock %}
+
+{% block content %}
+{% load rest_framework %}
+
+<div class="text-center">
+  <h1><a href="{% url 'card-create' %}">Make a shitty card.</a></h1>
+</div>
+
+{% endblock %}

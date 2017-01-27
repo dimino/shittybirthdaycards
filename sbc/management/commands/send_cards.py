@@ -48,3 +48,6 @@ class Command(BaseCommand):
                 },
                 message=card.message,
             )
+
+            card.when = arrow.get(arrow.utcnow()).replace(years=+1).date()
+            card.save()
